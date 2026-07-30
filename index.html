@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>災難醫學、動員指揮體系架構及緊急應變 | PGY 60分鐘臨床講堂 (54頁完整版)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="progress-container">
+    <div id="progress-bar" class="progress-bar"></div>
+  </div>
+
+  <!-- Header Navigation Controls -->
+  <header class="top-nav">
+    <div class="brand">
+      <span class="badge">PGY 60 Min Lecture (54 Slides)</span>
+      <span class="lecture-title">災難醫學與應變指揮體系</span>
+    </div>
+    <div class="controls">
+      <a href="game.html" class="game-nav-btn" title="開啟災難檢傷實戰小遊戲">🎮 檢傷實戰小遊戲</a>
+      <button id="notes-btn" title="切換講者備忘錄 (N)">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h10v2H7zm0 4h10v2H7zm0 4h7v2H7z"/></svg>
+        <span>講者備忘錄</span>
+      </button>
+      <button id="theme-btn" title="切換深淺色主題 (T)">
+        <svg viewBox="0 0 24 24" class="icon theme-icon-dark"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4C12.92 3.04 12.46 3 12 3z"/></svg>
+      </button>
+      <button id="fullscreen-btn" title="全螢幕簡報 (F)">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </button>
+      <button id="print-btn" title="匯出 PDF / 列印 (P)">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Slide Canvas -->
+  <main class="slide-stage">
+    <div id="slides-container" class="slides-container">
+
+      <!-- Slide 1 -->
+      <section class="slide active" data-slide="1">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：災難醫學與全災害管理</div>
+          <h1 class="slide-title">災難醫學、動員指揮體系架構及緊急應變</h1>
+          <h2 class="slide-subtitle">新進 PGY 醫師 60 分鐘臨床應變講堂</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><strong>主講人</strong>：臨床醫師 / 醫學教育導師</li>
+              <li><strong>參考與致謝</strong>：新竹臺大分院急診醫學部 張家豪醫師 / 黃俊翔醫師</li>
+              <li><strong>授課對象</strong>：Post-Graduate Year (PGY) 醫師</li>
+              <li><strong>核心精神</strong>：從診間到災難現場——全災害管理與動員指揮思維</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="slide" data-slide="2">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：戰爭與災害啟示</div>
+          <h2 class="slide-title">俄烏戰爭的啟示：災難離我們很遠嗎？</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">戰爭與災害衝擊</span> 沒有人喜歡戰爭與災害，但若真的來臨，我們是否做好準備？</li>
+              <li><span class="highlight-badge">極端環境救治</span> 俄烏戰場醫院遭轟炸、斷電時，醫護人員在微光下執行手術。</li>
+              <li><span class="highlight-badge">戰平轉換思維</span> 平時的醫療常態在極端災害下將迅速瓦解。</li>
+              <li><span class="highlight-badge">準備的重要性</span> 唯有平時落實演練與體系建置，災時才能發揮救命能量。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide" data-slide="3">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：急救責任醫院挑戰</div>
+          <h2 class="slide-title">急救責任醫院的雙重考量與挑戰</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">重症照護需求</span> 災害發生時，急重症醫療需求呈暴發性成長。</li>
+              <li><span class="highlight-badge">持續運作壓力</span> 基礎設施（水、電、通訊、資訊系統）持續運作是關鍵。</li>
+              <li><span class="highlight-badge">常態醫療維繫</span> 即使大傷湧入，原有洗腎、ICU、病房病人照護不能中斷。</li>
+              <li><span class="highlight-badge">資源限界</span> 面對資源極限，必須同時顧及常態與突發作業。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4 -->
+      <section class="slide" data-slide="4">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：作業能量擴充</div>
+          <h2 class="slide-title">急救責任醫院：保本與擴充能量</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">保本業務</span> 維繫醫院基本營運與既有住院患者之生命安全。</li>
+              <li><span class="highlight-badge">擴充能量</span> 瞬間擴充急診處置、手術室加開與重症床位調度能量。</li>
+              <li><span class="highlight-badge">資源儲備</span> 內部人力與物資平時有儲備，但關鍵在於「如何及時支援」。</li>
+              <li><span class="highlight-badge">離峰時段挑戰</span> 假日與夜間人力相對短缺時，擴充能量面臨極大考驗。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5 -->
+      <section class="slide" data-slide="5">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：醫療最後防線</div>
+          <h2 class="slide-title">醫療最後防線思維 (The Last Line of Defense)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">最後堡壘</span> 急診與責任醫院是災難救援體系中的「最後一線」。</li>
+              <li><span class="highlight-badge">無處可轉</span> 當全區受災時，醫院無法將病人再往外轉診。</li>
+              <li><span class="highlight-badge">自我韌性</span> 醫院本體建築安全與維生設備備援必須高度可靠。</li>
+              <li><span class="highlight-badge">PGY責任</span> 身為第一線醫師，必須具備臨危不亂的堅韌防線心態。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6 -->
+      <section class="slide" data-slide="6">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：法規背景</div>
+          <h2 class="slide-title">台灣緊急醫療救護法與責任醫院</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">法規源起</span> 衛生福利部依據《緊急醫療救護法》建置全台救護網絡。</li>
+              <li><span class="highlight-badge">分級制度目的</span> 針對「緊急醫療」範疇所設置之醫療機構能力評鑑。</li>
+              <li><span class="highlight-badge">評定基準</span> 根據醫院急重症處理能力，劃分為一般、中度與重度責任醫院。</li>
+              <li><span class="highlight-badge">體系連動</span> 奠定國家級 EOC 與區域救護網絡之調度法源依據。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7 -->
+      <section class="slide" data-slide="7">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：能力分級標準</div>
+          <h2 class="slide-title">醫院緊急醫療能力分級架構</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">一般責任醫院</span> 具備基本急診診間、一般內外科照護能力。</li>
+              <li><span class="highlight-badge">中度責任醫院</span> 具備處置常態急重症、骨科及一般大傷應變能力。</li>
+              <li><span class="highlight-badge">重度責任醫院</span> 全天候提供高難度急重症、重大外傷與多專科搶救。</li>
+              <li><span class="highlight-badge">演習評鑑</span> 中度與重度責任醫院均須訂有大傷計畫並定期演練。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 8 -->
+      <section class="slide" data-slide="8">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：重度責任醫院</div>
+          <h2 class="slide-title">重度責任醫院：全天候專科人力要求</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">一般內外科</span> 全天候提供一般內科、外科專科醫師駐院。</li>
+              <li><span class="highlight-badge">骨科與神經科</span> 全天候提供骨科、神經內科及神經外科專科醫師。</li>
+              <li><span class="highlight-badge">婦兒科與麻醉科</span> 全天候提供婦產科、小兒科及麻醉科專科醫師。</li>
+              <li><span class="highlight-badge">即時手術</span> 保證重大外傷與緊急手術能於黃金時間內順利進行。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9 -->
+      <section class="slide" data-slide="9">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：重度責任醫院</div>
+          <h2 class="slide-title">重度責任醫院：四大急重症處置能量</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">急性腦中風</span> 能全天候處置急性腦中風（包含執行緊急血栓溶解/手術）。</li>
+              <li><span class="highlight-badge">急性冠心症</span> 能全天候執行緊急冠狀動脈介入術 (Primary PCI)。</li>
+              <li><span class="highlight-badge">重大外傷</span> 能全天候處置重大外傷病人並執行緊急止血手術。</li>
+              <li><span class="highlight-badge">高危險孕產婦</span> 具備高危險妊娠孕產婦及新生兒急救照護能力。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10 -->
+      <section class="slide" data-slide="10">
+        <div class="slide-content">
+          <div class="tag-pill">單元一：大傷演練要求</div>
+          <h2 class="slide-title">大量傷病患 (MCI) 計畫與演習規範</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">大傷計畫</span> 醫院必須擬定完整大量傷病患緊急應變計畫書。</li>
+              <li><span class="highlight-badge">定期演習</span> 每年須舉辦無預警或實兵桌遊大傷演習。</li>
+              <li><span class="highlight-badge">跨單位協同</span> 演習須結合消防隊、衛生局與區域 EOC 通報。</li>
+              <li><span class="highlight-badge">檢討機制</span> 演習後進行 AAR (After Action Review) 檢討並修訂計畫。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 11 -->
+      <section class="slide" data-slide="11">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：全災害管理</div>
+          <h2 class="slide-title">全災害管理 (All-Hazard Management) 概念</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">定義</span> 針對不同類型災害，採取共同策略與統一管理程序的計畫模式。</li>
+              <li><span class="highlight-badge">痛點解決</span> 避免每一種災害各設一套獨立流程，造成疊床架屋。</li>
+              <li><span class="highlight-badge">簡化管理</span> 簡化各種災害的管理與緊急應變宣導，降低員工記憶負擔。</li>
+              <li><span class="highlight-badge">目標導向</span> 以目標管理為導向，提升整體組織對所有危害的應變能力。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 12 -->
+      <section class="slide" data-slide="12">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：全災害管理</div>
+          <h2 class="slide-title">全災害管理：避免疊床架屋</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">雷同策略統一</span> 通報、指揮成立、資材調度等程序在所有災害均雷同。</li>
+              <li><span class="highlight-badge">模組化整合</span> 將相同的應變模組抽取出來，進行統一劃一的規劃。</li>
+              <li><span class="highlight-badge">效率提升</span> 平時訓練單一流程，災時不論何種災害均能迅速動員。</li>
+              <li><span class="highlight-badge">平戰結合</span> 平時管理與戰時應變架構一致，無縫接軌。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 13 -->
+      <section class="slide" data-slide="13">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：EEMP 計畫結構</div>
+          <h2 class="slide-title">緊急事件管理計畫 (EEMP) 五大結構</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">基本計畫</span> 醫院的基本說明、地理資訊與維生設施狀況。</li>
+              <li><span class="highlight-badge">功能群組</span> 緊急應變指揮系統 (HICS) 組織架構與職能。</li>
+              <li><span class="highlight-badge">共同應變程序</span> 各種事件都可能用到的標準化處置程序。</li>
+              <li><span class="highlight-badge">個別緊急指引</span> 針對特定災害（如火災、地震、疫災）之特殊程序。</li>
+              <li><span class="highlight-badge">附件</span> 人員名單、聯絡通訊錄與各職位任務卡 (JAS)。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 14 -->
+      <section class="slide" data-slide="14">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：基本計畫內容</div>
+          <h2 class="slide-title">基本計畫：醫院的基本地理與資源資訊</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">地理與交通</span> 醫院地理位置、主要交通路線與主要出入口。</li>
+              <li><span class="highlight-badge">建築與設施</span> 樓層數、電梯數量、重要維生設施（發電機、水塔）。</li>
+              <li><span class="highlight-badge">人力與病床</span> 各區病床數、輪班醫護與管理人員數量統計。</li>
+              <li><span class="highlight-badge">合作院所</span> 簽有支援合作協定之醫療院所與運輸工具說明。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 15 -->
+      <section class="slide" data-slide="15">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：程序分流</div>
+          <h2 class="slide-title">共同應變程序 vs 個別緊急事件指引</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">共同應變程序</span> 通報啟動、人員調度召回、組織成立、資訊蒐集、物資管制。</li>
+              <li><span class="highlight-badge">個別緊急指引</span> 特定災害專屬處置（如火災 RACE、地震疏散、疫災防護服）。</li>
+              <li><span class="highlight-badge">主從關係</span> 啟動事件時先跑共同程序，再疊加個別指引。</li>
+              <li><span class="highlight-badge">PGY應用</span> 無論遇到何種災害，先依共同程序至指揮中心報到。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 16 -->
+      <section class="slide" data-slide="16">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：應變管理週期</div>
+          <h2 class="slide-title">緊急事件管理四個週期 (Four Phases)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">減災期 (Mitigation)</span> 發生前改善結構、補強建築、消除危害因子。</li>
+              <li><span class="highlight-badge">準備期 (Preparedness)</span> 發生前擬定計畫、物資囤備、教育訓練與演練。</li>
+              <li><span class="highlight-badge">應變期 (Response)</span> 發生時啟動指揮體系、救護處置與資源調度。</li>
+              <li><span class="highlight-badge">復原期 (Recovery)</span> 發生後環境重建、營運恢復與心理減壓。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 17 -->
+      <section class="slide" data-slide="17">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：應變生命週期</div>
+          <h2 class="slide-title">應變期生命週期（Phase 1 至 Phase 3）</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">Phase 1 事件發現</span> 事件發現及認知 (Event Recognition)，第一時間察覺異常。</li>
+              <li><span class="highlight-badge">Phase 2 通報啟動</span> 通知與啟動 (Activation)，發布 Code Red 廣播啟動 HICS。</li>
+              <li><span class="highlight-badge">Phase 3 人力動員</span> 動員 (Mobilization)，召回人員、挪空急診床位、加開手術室。</li>
+              <li><span class="highlight-badge">關鍵時效</span> 前三階段決定了醫院應變速度與後續存活率。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 18 -->
+      <section class="slide" data-slide="18">
+        <div class="slide-content">
+          <div class="tag-pill">單元二：應變生命週期</div>
+          <h2 class="slide-title">應變期生命週期（Phase 4 至 Phase 6）</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">Phase 4 事件應變</span> 事件應變 (Incident Operation)，全力執行臨床搶救。</li>
+              <li><span class="highlight-badge">Phase 5 歸建解散</span> 歸建與解散 (Demobilization)，傷患處置完畢解編組別。</li>
+              <li><span class="highlight-badge">Phase 6 恢復期</span> 進入恢復期 (Recovery)，環境清消、營運恢復常態。</li>
+              <li><span class="highlight-badge">完整性</span> 有秩序的解散歸建能避免醫療資源無謂浪費。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 19 -->
+      <section class="slide" data-slide="19">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：危害脆弱度分析 (HVA)</div>
+          <h2 class="slide-title">危害脆弱度分析 (Hazard Vulnerability Analysis, HVA)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">定義</span> 辨識與評估醫療機構容易受到危害之狀態、特性與關係。</li>
+              <li><span class="highlight-badge">定位</span> 緊急應變管理的第一步，如同醫療機構的「全方位健康檢查」。</li>
+              <li><span class="highlight-badge">目的</span> 幫助組織瞭解並降低潛在災害衝擊，提高整體韌性與準備能力。</li>
+              <li><span class="highlight-badge">兩大組成</span> 明確包含了兩個關鍵組成要素——「危害」與「脆弱度」。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 20 -->
+      <section class="slide" data-slide="20">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：HVA 核心概念</div>
+          <h2 class="slide-title">HVA 核心概念：危害、抗性、韌性與脆弱度</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">危害 (Hazard)</span> 可能對醫院運作、環境安全或照護造成衝擊之潛在事件。</li>
+              <li><span class="highlight-badge">抗性 (Resistance)</span> 社區或醫院在遭遇危害事件時，能夠抵抗衝擊的能力。</li>
+              <li><span class="highlight-badge">韌性 (Resilience)</span> 社區或醫院在遭遇危害事件時，能夠從衝擊中復原的效能。</li>
+              <li><span class="highlight-badge">脆弱度 (Vulnerability)</span> 抵抗衝擊能力不足及無法快速復原之易受害程度。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 21 -->
+      <section class="slide" data-slide="21">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：HVA 評估公式</div>
+          <h2 class="slide-title">HVA 風險評估公式</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">基本公式</span> **風險 Risk = 可能性 (Probability) × 嚴重度 ÷ 準備程度**。</li>
+              <li><span class="highlight-badge">可能性</span> 該危害事件在一年內發生的機率（0=不適用, 1=低, 2=中, 3=高）。</li>
+              <li><span class="highlight-badge">嚴重度</span> 包含人命健康衝擊、財產損失與服務運作中斷程度。</li>
+              <li><span class="highlight-badge">準備程度</span> 事先準備、內部應變與外部資源共享之完備性。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 22 -->
+      <section class="slide" data-slide="22">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：HVA 量化評分</div>
+          <h2 class="slide-title">HVA 評估之六大量化構面</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">發生率</span> 不太可能復發 (1) ➔ 可能發生 (2) ➔ 容易發生 (3)。</li>
+              <li><span class="highlight-badge">健康衝擊</span> 更輕微 (0) ➔ 普通輕微 (1) ➔ 次嚴重 (2) ➔ 很嚴重 (3)。</li>
+              <li><span class="highlight-badge">財產損害</span> 硬體損害或喪失之程度評估。</li>
+              <li><span class="highlight-badge">服務中斷</span> 醫療與行政服務中斷之時間與範疇。</li>
+              <li><span class="highlight-badge">備援與支援</span> 內部資源效率與外部單位支援度。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 23 -->
+      <section class="slide" data-slide="23">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：HVA 風險排序</div>
+          <h2 class="slide-title">HVA 步驟四：風險排序與分類</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">風險排序</span> 將各種危害依總分進行高低排序並畫成統計圖表。</li>
+              <li><span class="highlight-badge">分類重點</span> 重點不在分數數字本身，而是將分數相近者歸類。</li>
+              <li><span class="highlight-badge">三分法</span> 劃分為「最優先處置」、「次優先處置」與「暫緩處置」。</li>
+              <li><span class="highlight-badge">資源聚焦</span> 排除絕不可能遇到的危害，減少緊急應變規劃之負擔。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 24 -->
+      <section class="slide" data-slide="24">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：HVA 綜合評估</div>
+          <h2 class="slide-title">HVA 步驟五：綜合評估脆弱度</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">關鍵步驟</span> 這是 HVA 最重要的部分，也是導引緊急事件管理的關鍵。</li>
+              <li><span class="highlight-badge">尋找共同點</span> 整體審視可以發現，許多危害其容易受害的部分其實有共同之處。</li>
+              <li><span class="highlight-badge">跨災害影響</span> 例如地震、颱風、淹水都可能因為「停電」而對運作造成重創。</li>
+              <li><span class="highlight-badge">應變聚焦</span> 整理出不同災害共同影響的部分，這些就是急需要處理的重點。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 25 -->
+      <section class="slide" data-slide="25">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：脆弱點解析</div>
+          <h2 class="slide-title">關鍵脆弱點解析：停電對醫療之連鎖衝擊</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">維生設備中斷</span> 呼吸器、麻醉機、ECMO 等急重症設備面臨停擺威脅。</li>
+              <li><span class="highlight-badge">藥物與血液失效</span> 藥品疫苗冰箱、血庫失溫導致關鍵資材報廢。</li>
+              <li><span class="highlight-badge">資訊與通訊癱瘓</span> HIS 醫令系統、電子病歷與全院對講機無法連線。</li>
+              <li><span class="highlight-badge">強化備援</span> 設置緊急發電機、不斷電系統 (UPS) 與定期切換測試。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 26 -->
+      <section class="slide" data-slide="26">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：減災整備策略</div>
+          <h2 class="slide-title">HVA 步驟六：產生減災整備策略</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">針對弱點強化</span> 方針對共同弱點來做強化，即可同時強化多種危害之準備。</li>
+              <li><span class="highlight-badge">成本效益評估</span> 評估各項未來減災整備措施之成本效益 (Cost-Benefit)。</li>
+              <li><span class="highlight-badge">優先原則一</span> 對於「多種災害都有效益」之策略，考慮優先執行。</li>
+              <li><span class="highlight-badge">優先原則二</span> 對於「嚴重度與風險極高」之項目，考慮優先執行。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 27 -->
+      <section class="slide" data-slide="27">
+        <div class="slide-content">
+          <div class="tag-pill">單元三：HVA 總結</div>
+          <h2 class="slide-title">HVA 總結：危害分析的核心價值</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">分析重於篩選</span> HVA 不僅是用來篩選危害或排優先順序。</li>
+              <li><span class="highlight-badge">說明真實衝擊</span> 更重要的是「分析與說明危害影響對醫院的真實衝擊是什麼」。</li>
+              <li><span class="highlight-badge">實務與成本困擾</span> 理論上所有危害都需分析，但實際上有困難且成本效益有困擾。</li>
+              <li><span class="highlight-badge">動態更新</span> 建議醫院每年定期召開會議更新 HVA 評估結果。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 28 -->
+      <section class="slide" data-slide="28">
+        <div class="slide-content">
+          <div class="tag-pill">單元四：檢傷分類哲學</div>
+          <h2 class="slide-title">災難檢傷的核心哲學 (Triage Mindset)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">極大化全體效益</span> 在資源極度受限下，為最多的人爭取最大的存活機會。</li>
+              <li><span class="highlight-badge">倫理思維翻轉</span> 從日常急診「不計代價搶救單一病人」轉為「資源最佳配給」。</li>
+              <li><span class="highlight-badge">時間為王</span> 評估必須極度迅速，避免於檢傷站延誤分流效率。</li>
+              <li><span class="highlight-badge">動態 Re-triage</span> 傷患病情隨時在變，檢傷卡類別需動態調整。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 29 -->
+      <section class="slide" data-slide="29">
+        <div class="slide-content">
+          <div class="tag-pill">單元四：檢傷四大原則</div>
+          <h2 class="slide-title">大量傷病患檢傷四大鐵則</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">救最多人</span> 優先將有限醫療資源挹注於存活率高且危急之患者。</li>
+              <li><span class="highlight-badge">動態評估</span> 檢傷非一次性，病情變化時須隨時進行 Re-triage。</li>
+              <li><span class="highlight-badge">快速分類</span> 每位傷患之評估時間嚴格控制在 30 至 60 秒內完成。</li>
+              <li><span class="highlight-badge">現場不處置</span> 除「開放氣道」與「壓迫止血」外，檢傷區不做延遲處置。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 30 -->
+      <section class="slide" data-slide="30">
+        <div class="slide-content">
+          <div class="tag-pill">單元四：START 檢傷法</div>
+          <h2 class="slide-title">START 初級檢傷法 (Simple Triage and Rapid Treatment)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">全球標準</span> 台灣與國際最普遍採用之災難現場與急診初級檢傷協定。</li>
+              <li><span class="highlight-badge">RPM 口訣</span> 涵蓋 **R**espiration (呼吸)、**P**erfusion (灌流)、**M**ental (意識)。</li>
+              <li><span class="highlight-badge">客觀指標</span> 採用不需儀器之生理徵象（行走、呼吸次數、微血管充盈、指令）。</li>
+              <li><span class="highlight-badge">分流至四區</span> 快速將傷患分流至紅、黃、綠、黑四大區域。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 31 -->
+      <section class="slide" data-slide="31">
+        <div class="slide-content">
+          <div class="tag-pill">單元四：START Step 1</div>
+          <h2 class="slide-title">START 檢傷 Step 1：行走功能評估 (Walking)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">現場廣播</span> 檢傷人員抵達現場廣播：「能自行行走者請跟我來」。</li>
+              <li><span class="highlight-badge">綠色標記</span> 凡能遵從指令並自行行走離場者，直接標記為【綠色 (Minor)】。</li>
+              <li><span class="highlight-badge">輕傷分流</span> 綠色傷患引導至輕傷觀察區，由 PGY 或護理人員協助包紮。</li>
+              <li><span class="highlight-badge">降低干擾</span> 優先移走大量輕傷患者，能大幅降低重症檢傷區之混亂。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 32 -->
+      <section class="slide" data-slide="32">
+        <div class="slide-content">
+          <div class="tag-pill">單元四：START Step 2</div>
+          <h2 class="slide-title">START 檢傷 Step 2：呼吸評估 (Respiration)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">無呼吸處置</span> 無呼吸者，手動打開放氣道 (Jaw-thrust/OAT)。</li>
+              <li><span class="highlight-badge">黑色標記</span> 開放氣道後仍無自主呼吸者，標記為【黑色 (Expectant/Deceased)】。</li>
+              <li><span class="highlight-badge">呼吸過快</span> 恢復呼吸但呼吸速率 RR > 30 次/分者，直接標記為【紅色 (Immediate)】。</li>
+              <li><span class="highlight-badge">呼吸正常</span> 呼吸速率 RR ≤ 30 次/分者，進入 Step 3 灌流評估。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 33 -->
+      <section class="slide" data-slide="33">
+        <div class="slide-content">
+          <div class="tag-pill">單元四：START Step 3</div>
+          <h2 class="slide-title">START 檢傷 Step 3：灌流評估 (Perfusion)</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">評估方法</span> 檢查微血管充盈時間 (CRT) 或橈動脈脈搏 (Radial Pulse)。</li>
+              <li><span class="highlight-badge">灌流異常</span> CRT > 2 秒或摸不到橈動脈脈搏者，標記為【紅色】。</li>
+              <li><span class="highlight-badge">出血處置</span> 若有明顯大血管噴血，立即給予壓迫止血帶或加壓包紮。</li>
+              <li><span class="highlight-badge">灌流正常</span> CRT ≤ 2 秒且摸得到橈動脈脈搏者，進入 Step 4 意識評估。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 34 -->
+      <section class="slide" data-slide="34">
+        <div class="slide-content">
+          <div class="tag-pill">單元四：START Step 4</div>
+          <h2 class="slide-title">START 檢傷 Step 4：意識評估 (Mental) 與四色卡</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">意識評估</span> 給予簡單指令（如「請握緊我的手」或「眨眨眼睛」）。</li>
+              <li><span class="highlight-badge">紅色與黃色</span> 無法遵從簡單指令者標記為【紅色】；能遵從指令者標記為【黃色】。</li>
+              <li><span class="highlight-badge">四色檢傷卡</span> 紅色 (立即搶救)、黃色 (延後處置)、綠色 (輕傷)、黑色 (期待死亡)。</li>
+              <li><span class="highlight-badge">標籤與條碼</span> 檢傷卡須有防水功能與唯一條碼（Triage Tag ID）。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 35 -->
+      <section class="slide" data-slide="35">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：HICS 指揮體系</div>
+          <h2 class="slide-title">什麼是 HICS (Hospital Incident Command System)？</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">定義</span> Hospital Incident Command System，源自美國 ICS 模組化指揮架構。</li>
+              <li><span class="highlight-badge">適用範疇</span> 通用的緊急事件管理策略，涵蓋各種不同大小、不同類型的災害事件。</li>
+              <li><span class="highlight-badge">核心目標</span> 使所有參與應變的人員可以跨科別、跨職類協調共同運作。</li>
+              <li><span class="highlight-badge">功能導向</span> 整合不同機構功能於同一指揮系統下，與科技依賴度無關。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 36 -->
+      <section class="slide" data-slide="36">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：HICS 三大目標</div>
+          <h2 class="slide-title">HICS 三大核心目標：Command, Control, Coordination</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">Command (指揮)</span> 建立明確的單一指揮權與決策層級。</li>
+              <li><span class="highlight-badge">Control (管制)</span> 有效控管應變現場的人力、物資、病患流量與區域安全。</li>
+              <li><span class="highlight-badge">Coordination (協調)</span> 促進醫院內部各部門與外部消防、EOC 機關之協同運作。</li>
+              <li><span class="highlight-badge">功能導向</span> 不論平常職位高低，進入 HICS 均依功能模組化運作。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 37 -->
+      <section class="slide" data-slide="37">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：HICS 9大優點</div>
+          <h2 class="slide-title">HICS 九大優點（一）：共同術語與模組化</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">共同名詞定義</span> Common terminology 統一全院名詞，避免溝通混亂。</li>
+              <li><span class="highlight-badge">模組化架構</span> Modular organization 依事件規模彈性擴充或縮減組織。</li>
+              <li><span class="highlight-badge">整合溝通機制</span> Integrated communications 建立統一之通訊頻道與通報鏈。</li>
+              <li><span class="highlight-badge">預設應變設施</span> Designated facilities 預先指定急診 command post 與各檢傷區。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 38 -->
+      <section class="slide" data-slide="38">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：HICS 9大優點</div>
+          <h2 class="slide-title">HICS 九大優點（二）：單一指揮與行動計畫</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">單元指揮</span> Unity of command 每位應變人員僅向一位直屬上級匯報。</li>
+              <li><span class="highlight-badge">單一命令鏈</span> Unified command structure 指揮官指令垂直精準貫徹。</li>
+              <li><span class="highlight-badge">整合行動規劃</span> Consolidated IAP 撰寫行動計畫確定短期應變目標。</li>
+              <li><span class="highlight-badge">有效管理範圍</span> Manageable span of control 每位主管控制下屬 3-7 人。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 39 -->
+      <section class="slide" data-slide="39">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：HICS 組織架構</div>
+          <h2 class="slide-title">HICS 組織架構之五大面向</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">指揮功能</span> Command 指揮官及安全官、聯絡官、發言人與技術專家。</li>
+              <li><span class="highlight-badge">執行功能</span> Operations 負責應變行動中的臨床醫療與技術操作部份。</li>
+              <li><span class="highlight-badge">計畫功能</span> Planning 支援訊息情報管理，提供過去、現在與未來資訊。</li>
+              <li><span class="highlight-badge">後勤與財務</span> Logistics/Finance 提供物資膳食、工時記錄與行政程序。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 40 -->
+      <section class="slide" data-slide="40">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：指揮官與幕僚</div>
+          <h2 class="slide-title">HICS 指揮官 (Incident Commander) 與三大幕僚</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">指揮官</span> 組織並調整團隊、進行決策、決定目標及工作優先順位。</li>
+              <li><span class="highlight-badge">安全官 (Safety)</span> 評估潛在危害、進行風險控管，確保人員人身安全。</li>
+              <li><span class="highlight-badge">聯絡官 (Liaison)</span> 代表指揮官負責對外與消防局、EOC 及其他單位聯繫。</li>
+              <li><span class="highlight-badge">發言官 (PIO)</span> 負責對公眾與媒體統一發布應變訊息。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 41 -->
+      <section class="slide" data-slide="41">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：執行部門</div>
+          <h2 class="slide-title">執行部門 (Operations Section) 職掌與分組</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">人力最大</span> 通常占應變人員最大部分，負責第一線臨床醫療與技術處置。</li>
+              <li><span class="highlight-badge">主要任務</span> 完成指揮官交付之行動計畫 (IAP)，執行急救、手術與病房動員。</li>
+              <li><span class="highlight-badge">分組範例</span> 醫療照護課、基礎設施課、危害物質課 (HAZMAT)、安全課。</li>
+              <li><span class="highlight-badge">PGY定位</span> PGY 醫師報到後，絕大多數被分派至執行部門之醫療照護組。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 42 -->
+      <section class="slide" data-slide="42">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：計畫部門</div>
+          <h2 class="slide-title">計畫部門 (Planning Section) 職掌與分組</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">戰情核心</span> 掌握正確資源狀態，搜集分析情勢並預測未來可能的變化。</li>
+              <li><span class="highlight-badge">擬定 IAP</span> 主導計畫會議，研擬行動計畫 (IAP) 與預備替代方案。</li>
+              <li><span class="highlight-badge">分組範例</span> 情況分析單位 (Situation unit)、資源監控單位 (Resources unit)。</li>
+              <li><span class="highlight-badge">復原歸建</span> 包含損害評估單位、特殊需求族群照護單位及復原歸建單位。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 43 -->
+      <section class="slide" data-slide="43">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：後勤部門</div>
+          <h2 class="slide-title">後勤部門 (Logistics Section) 職掌與分組</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">資材後盾</span> 提供所有人員達成任務所需之設施、設備、人員和材料。</li>
+              <li><span class="highlight-badge">服務與支援</span> 涵蓋勤務功能 (Service) 與支援功能 (Support) 兩大構面。</li>
+              <li><span class="highlight-badge">分組範例</span> 通信單位 (Communication)、醫療單位、食物單位 (Food unit)。</li>
+              <li><span class="highlight-badge">交通與供應</span> 包含供應單位 (Supply)、設施單位與交通載具單位。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 44 -->
+      <section class="slide" data-slide="44">
+        <div class="slide-content">
+          <div class="tag-pill">單元五：財務行政部門</div>
+          <h2 class="slide-title">財務行政部門 (Finance/Admin Section) 職掌</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">財務完備</span> 負責緊急應變時的財務管理與符合法律規範之行政程序完備。</li>
+              <li><span class="highlight-badge">時間單位</span> Time unit 精確記錄應變所有人員參與的時間與加班工時。</li>
+              <li><span class="highlight-badge">採購單位</span> Procurement unit 管理緊急物資採購與合約簽署程序。</li>
+              <li><span class="highlight-badge">索賠與主計</span> 處理賠償索賠 (Compensation) 與主計出納 (Cost unit) 費用分析。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 45 -->
+      <section class="slide" data-slide="45">
+        <div class="slide-content">
+          <div class="tag-pill">單元六：HICS 實務流程</div>
+          <h2 class="slide-title">建立醫院 HICS 分組之六大步驟</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">Step 1-2</span> 確認優先事項 ➔ 依照 HICS 模組架構進行系統化分類。</li>
+              <li><span class="highlight-badge">Step 3-4</span> 盤點醫院現有人力 ➔ 將人力安排至適當 HICS 職位。</li>
+              <li><span class="highlight-badge">Step 5-6</span> 將不足人力之工作延後或合併分組 ➔ 確認基本與延伸模組。</li>
+              <li><span class="highlight-badge">動態性</span> 依災害規模彈性增減模組，確保體系隨時順暢運作。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 46 -->
+      <section class="slide" data-slide="46">
+        <div class="slide-content">
+          <div class="tag-pill">單元六：代理人制度</div>
+          <h2 class="slide-title">假日與夜間指揮架構及代理人制度</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">時間挑戰</span> 災害常發生於人力最少之假日或大夜班，指揮架構必須能運行。</li>
+              <li><span class="highlight-badge">職能分離</span> 將人員與指揮架構分開，避免因特定人員不在致系統癱瘓。</li>
+              <li><span class="highlight-badge">職稱指定代理</span> 建議第一代理人使用「職稱」（如急診值班主治醫師）。</li>
+              <li><span class="highlight-badge">名冊附錄化</span> 全院人員名單定期更新並移至附件，利於快速更換。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 47 -->
+      <section class="slide" data-slide="47">
+        <div class="slide-content">
+          <div class="tag-pill">單元六：任務卡 (JAS)</div>
+          <h2 class="slide-title">任務卡 (Job Action Sheet, JAS) 的實務應用</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">口袋指引</span> 印製成口袋大小防水卡片，隨時發放給 HICS 各職位人員。</li>
+              <li><span class="highlight-badge">重點項目</span> 實際列出該職位在應變前 30 分鐘、1 小時內之工作重點項目。</li>
+              <li><span class="highlight-badge">降低慌亂</span> 醫護人員即使臨時被派任陌生組別，照著任務卡即可精準執行。</li>
+              <li><span class="highlight-badge">簽核記錄</span> 完成項目後勾選簽核，作為後續 IAP 行動計畫檢討依據。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 48 -->
+      <section class="slide" data-slide="48">
+        <div class="slide-content">
+          <div class="tag-pill">單元六：人力動員</div>
+          <h2 class="slide-title">共同應變程序：人力調度與召回</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">雙軌機制</span> 人力支援機制可分為「院內調度」與「全院召回」。</li>
+              <li><span class="highlight-badge">院內調度優先</span> 院內既有人力調度時效性與確定性極高，為最有效率機制。</li>
+              <li><span class="highlight-badge">召回限縮</span> 全院召回設定時限常不合實用，應視災害規模逐步啟動。</li>
+              <li><span class="highlight-badge">報到與管理</span> 須設置專責人員與報到處 (Staging)，管理召回人員說明。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 49 -->
+      <section class="slide" data-slide="49">
+        <div class="slide-content">
+          <div class="tag-pill">單元六：火災應變</div>
+          <h2 class="slide-title">個別緊急事件指引：火災 RACE 原則</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">R (Rescue)</span> 救援—優先將危害區域內之病人與人員移至安全處。</li>
+              <li><span class="highlight-badge">A (Alarm)</span> 通報—按下火警警報器，撥打院內緊急分機通報。</li>
+              <li><span class="highlight-badge">C (Contain)</span> 關門—關閉起火房間門窗與防火門，阻隔煙熱擴散。</li>
+              <li><span class="highlight-badge">E (Extinguish)</span> 滅火/疏散—小火用滅火器；大火優先水平過門疏散。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 50 -->
+      <section class="slide" data-slide="50">
+        <div class="slide-content">
+          <div class="tag-pill">單元六：自保與減壓</div>
+          <h2 class="slide-title">防護服 (PPE)、除污 (Decon) 與心理減壓</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">HAZMAT 安全第一</span> 若遭遇化學、輻射或毒氣災害，未除污前絕不接觸傷患。</li>
+              <li><span class="highlight-badge">落實適當 PPE</span> 依 HAZMAT 危害等級佩戴 N95、P100 或防護服防止二次污染。</li>
+              <li><span class="highlight-badge">替代創傷 (PTSD)</span> 大傷處置面對大量創傷肢體，醫護人員極易產生心理創傷。</li>
+              <li><span class="highlight-badge">集體減壓 (Debriefing)</span> 應變結束後必須召開心理減壓會議，互相傾聽支持。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 51 -->
+      <section class="slide" data-slide="51">
+        <div class="slide-content">
+          <div class="tag-pill">單元七：本土案例</div>
+          <h2 class="slide-title">台灣本土災害案例（一）：地震災害經驗</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">1999 年 921 大地震</span> 規模 7.3 (2,415死)，促成《災害防救法》與 EOC。</li>
+              <li><span class="highlight-badge">2016 高雄美濃地震</span> 維冠大樓倒塌 (117死)，強化 Crush Syndrome 處置。</li>
+              <li><span class="highlight-badge">2018 花蓮地震</span> 雲翠大樓倒塌，引發全台老舊建築耐震補強與急救隊關注。</li>
+              <li><span class="highlight-badge">2024 花蓮 403 強震</span> 規模 7.2，迅速啟動中央 EOC，展現高度體系韌性。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 52 -->
+      <section class="slide" data-slide="52">
+        <div class="slide-content">
+          <div class="tag-pill">單元七：本土案例</div>
+          <h2 class="slide-title">台灣本土災害案例（二）：重大事故與人為災害</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">2015 年八仙塵暴</span> 最大燒傷 (499傷)，中央 EOC 全台調度 ICU 與人工真皮。</li>
+              <li><span class="highlight-badge">2021 太魯閣號出軌</span> 49 死 200 傷，考驗狹窄隧道搜救與前進指揮所 (ICP)。</li>
+              <li><span class="highlight-badge">2023 明揚工廠爆炸</span> 工安火災 (10死)，引發危害物質管理與消防員安全反思。</li>
+              <li><span class="highlight-badge">復興與華航空難</span> 低溫水域搜救、多重創傷處置與 DMO 罹難者 DNA 鑑定。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 53 -->
+      <section class="slide" data-slide="53">
+        <div class="slide-content">
+          <div class="tag-pill">單元七：PGY 行動指南</div>
+          <h2 class="slide-title">當醫院啟動大傷 (MCI) 時：PGY 行動指南</h2>
+          <div class="card-box">
+            <ul class="body-list">
+              <li><span class="highlight-badge">聽從 Command</span> 穿上白袍至【急診指揮所 / Operations】領取任務卡報到。</li>
+              <li><span class="highlight-badge">守護崗位</span> 綠區處置輕傷、黃區開立 Order，或於紅區協助 Fast Scan。</li>
+              <li><span class="highlight-badge">資訊精準</span> 確實填寫 Triage Tag 檢傷卡號與標籤，防止身分混淆。</li>
+              <li><span class="highlight-badge">嚴禁單打獨鬥</span> 服從單一指揮，未受指令切勿私調藥品或擅離崗位。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 54 -->
+      <section class="slide" data-slide="54">
+        <div class="slide-content">
+          <div class="tag-pill">單元七：總結與 Q&A</div>
+          <h2 class="slide-title">Take Home Message 課程總結</h2>
+          <div class="rules-grid">
+            <div class="rule-card">
+              <div class="rule-num">Rule 1</div>
+              <h3>重度責任醫院</h3>
+              <p>堅守急重症與災難醫療最後防線之使命。</p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-num">Rule 2</div>
+              <h3>脆弱度分析 (HVA)</h3>
+              <p>系統評估精準補強，找出跨災害共同弱點。</p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-num">Rule 3</div>
+              <h3>HICS 指揮架構</h3>
+              <p>熟悉 Common Terminology，服從單一指揮。</p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-num">Rule 4</div>
+              <h3>共同應變與自保</h3>
+              <p>熟練 START 與 RACE，注重 PPE 與心理減壓。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Drawer for Speaker Notes -->
+  <aside id="notes-drawer" class="notes-drawer">
+    <div class="notes-header">
+      <h3>🗣️ 講者備忘錄 (Speaker Notes)</h3>
+      <button id="close-notes-btn">✕</button>
+    </div>
+    <div id="notes-content" class="notes-content">
+      <!-- Dynamically filled by JS -->
+    </div>
+  </aside>
+
+  <!-- Bottom Navigation Control Bar -->
+  <footer class="bottom-bar">
+    <div class="nav-buttons">
+      <button id="prev-btn" title="上一頁 (Left Arrow)">上一頁</button>
+      <span id="slide-indicator" class="slide-indicator">1 / 54</span>
+      <button id="next-btn" title="下一頁 (Right Arrow)">下一頁</button>
+    </div>
+    <div class="shortcut-tip">
+      提示：使用 ⬅️ ➡️ 方向鍵切換頁面 | 按 N 開啟講稿 | 按 F 全螢幕
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

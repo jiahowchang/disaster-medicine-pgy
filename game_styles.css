@@ -1,0 +1,600 @@
+/* Disaster Triage Mini-Game CSS with Direct Name Input & Top 3 Leaderboard */
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --card-bg: rgba(30, 41, 59, 0.9);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+  --primary-accent: #38bdf8;
+  
+  --red-color: #ef4444;
+  --yellow-color: #f59e0b;
+  --green-color: #10b981;
+  --black-color: #475569;
+
+  --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --silver-gradient: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+  --bronze-gradient: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.game-header {
+  height: 70px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 50;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.back-link {
+  color: var(--primary-accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+}
+
+.game-badge {
+  background: #0284c7;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.game-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--primary-accent);
+}
+
+/* Stage & Cards */
+.game-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.game-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Welcome & Direct Input Login Card */
+.welcome-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.hero-visual {
+  margin-bottom: 0.25rem;
+}
+
+.game-hero-icon {
+  width: 70px;
+  height: 70px;
+  color: var(--primary-accent);
+}
+
+.welcome-card h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.welcome-card .desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-sub);
+  max-width: 700px;
+}
+
+/* Direct Input Login Section */
+.login-section {
+  width: 100%;
+  max-width: 550px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 2px solid var(--primary-accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.login-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary-accent);
+  text-align: left;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.name-input-field {
+  width: 100%;
+  background: rgba(30, 41, 59, 0.95);
+  border: 2px solid var(--primary-accent);
+  color: var(--text-main);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.name-input-field:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+.name-input-field::placeholder {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.disaster-select {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.disaster-select h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.disaster-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.disaster-btn {
+  background: rgba(15, 23, 42, 0.6);
+  border: 2px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.disaster-btn.active, .disaster-btn:hover {
+  border-color: var(--primary-accent);
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--primary-accent);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(2, 132, 199, 0.5);
+}
+
+/* Welcome Leaderboard */
+.welcome-leaderboard {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.welcome-leaderboard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #f59e0b;
+}
+
+.top3-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.top3-item {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+}
+
+.top3-item.gold { border-color: #f59e0b; color: #fbbf24; }
+.top3-item.silver { border-color: #94a3b8; color: #e2e8f0; }
+.top3-item.bronze { border-color: #b45309; color: #f59e0b; }
+
+/* Quiz Card */
+.quiz-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.case-number {
+  font-size: 1.1rem;
+  color: var(--text-sub);
+}
+
+.case-number strong {
+  color: var(--primary-accent);
+  font-size: 1.3rem;
+}
+
+.scenario-tag {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--yellow-color);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.patient-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.patient-avatar {
+  font-size: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.patient-details {
+  flex: 1;
+}
+
+.patient-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.patient-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 1.25rem;
+}
+
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.vital-item {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.vital-name {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  font-weight: 700;
+}
+
+.vital-val {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.action-prompt h3 {
+  font-size: 1.15rem;
+  color: var(--text-sub);
+}
+
+/* Triage Buttons Grid */
+.triage-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.triage-btn {
+  padding: 1.25rem;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.triage-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.color-badge {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.color-sub {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.red-btn { background: #991b1b; color: white; border-color: #f87171; }
+.yellow-btn { background: #92400e; color: white; border-color: #fbbf24; }
+.green-btn { background: #065f46; color: white; border-color: #34d399; }
+.black-btn { background: #1e293b; color: white; border-color: #64748b; }
+
+/* Feedback Box */
+.feedback-box {
+  background: rgba(15, 23, 42, 0.95);
+  border: 2px solid var(--primary-accent);
+  padding: 1.5rem;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.feedback-box.correct { border-color: var(--green-color); }
+.feedback-box.incorrect { border-color: var(--red-color); }
+
+.feedback-title { font-size: 1.3rem; font-weight: 900; }
+.feedback-desc { font-size: 1.05rem; line-height: 1.6; color: var(--text-main); }
+
+.next-btn {
+  align-self: flex-end;
+  background: var(--primary-accent);
+  color: #0f172a;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Result Card & Leaderboard */
+.result-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.trophy-icon { font-size: 3.5rem; }
+
+.player-congrat {
+  font-size: 1.15rem;
+  color: var(--text-sub);
+}
+
+.highlight-name {
+  color: var(--primary-accent);
+  font-size: 1.3rem;
+}
+
+.result-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 1.25rem;
+  border-radius: 14px;
+}
+
+.res-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+.res-label { font-size: 0.85rem; color: var(--text-sub); }
+.res-val { font-size: 1.8rem; font-weight: 900; color: var(--primary-accent); }
+
+/* Leaderboard Grid */
+.leaderboard-section {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.leaderboard-section h3 {
+  font-size: 1.2rem;
+  color: #f59e0b;
+  margin-bottom: 0.75rem;
+}
+
+.leaderboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lb-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lb-card.gold { border-color: #f59e0b; background: rgba(245, 158, 11, 0.15); }
+.lb-card.silver { border-color: #94a3b8; background: rgba(148, 163, 184, 0.15); }
+.lb-card.bronze { border-color: #b45309; background: rgba(180, 83, 9, 0.15); }
+
+.lb-rank { font-size: 1.4rem; font-weight: 900; }
+.lb-name { font-size: 1.2rem; font-weight: 800; }
+.lb-score { font-size: 1.2rem; font-weight: 900; color: var(--primary-accent); }
+
+/* Reward Voucher Box */
+.reward-box {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(217, 119, 6, 0.3) 100%);
+  border: 2px gold double;
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 100%;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+  to { box-shadow: 0 0 35px rgba(245, 158, 11, 0.5); }
+}
+
+.reward-ribbon {
+  background: #f59e0b;
+  color: #0f172a;
+  padding: 0.3rem 1rem;
+  border-radius: 9999px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.reward-box h3 { font-size: 1.5rem; color: #fbbf24; margin-bottom: 0.5rem; }
+.reward-box p { font-size: 1.1rem; color: var(--text-main); }
+
+.rank-box {
+  background: rgba(56, 189, 248, 0.1);
+  border: 2px dashed var(--primary-accent);
+  padding: 1.25rem;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.rank-title { font-size: 0.95rem; color: var(--text-sub); }
+.rank-name { font-size: 1.6rem; color: #f59e0b; margin: 0.3rem 0; }
+.rank-desc { font-size: 1.05rem; color: var(--text-main); }
+
+.result-actions { display: flex; gap: 1rem; }
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .vitals-grid, .triage-buttons, .top3-list {
+    grid-template-columns: 1fr;
+  }
+}

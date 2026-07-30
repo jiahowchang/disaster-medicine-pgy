@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚨 災難檢傷 60 秒英雄 | PGY 臨床檢傷實戰小遊戲</title>
+  <link rel="stylesheet" href="game_styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti for Celebration Effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="game-header">
+    <div class="header-left">
+      <a href="index.html" class="back-link">⬅️ 返回講堂簡報</a>
+      <span class="game-badge">START Triage Simulator</span>
+      <h1 class="game-title">🚨 災難檢傷 60 秒英雄</h1>
+    </div>
+    <div class="header-stats">
+      <div class="stat-box">
+        <span class="stat-label">目前玩家</span>
+        <span id="header-player-name" class="stat-value">未登入</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">得分</span>
+        <span id="score" class="stat-value">0</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">連續正確</span>
+        <span id="streak" class="stat-value">0 🔥</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">剩餘時間</span>
+        <span id="timer" class="stat-value">60s</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Game Stage -->
+  <main class="game-stage">
+    
+    <!-- Welcome / Name Login Screen -->
+    <section id="welcome-screen" class="game-card welcome-card">
+      <div class="hero-visual">
+        <svg viewBox="0 0 100 100" class="game-hero-icon">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="4" opacity="0.2"/>
+          <path fill="currentColor" d="M44 25 H56 V44 H75 V56 H56 V75 H44 V56 H25 V44 H44 Z"/>
+        </svg>
+      </div>
+      <h2>歡迎來到 PGY 災難檢傷臨床實戰模擬</h2>
+      <p class="desc">
+        請學員輸入您的姓名，挑戰 <strong>START RPM 60 秒法則</strong>！<br>
+        遊戲結束後將頒發 <strong>🏆 前 3 名即時榮譽排行榜與獎勵憑證</strong>！
+      </p>
+      
+      <!-- Student Direct Input Login Section -->
+      <div class="login-section">
+        <h3>👤 請填寫您的學員姓名 / 暱稱：</h3>
+        <div class="input-group">
+          <input type="text" id="player-name-input" class="name-input-field" placeholder="✏️ 請輸入您的姓名 (例如：張醫師、PGY 01)..." autofocus>
+        </div>
+      </div>
+
+      <div class="disaster-select">
+        <h3>請選擇應變情境事故：</h3>
+        <div class="disaster-options">
+          <button class="disaster-btn active" data-mode="earthquake">🏚️ 921/花蓮大地震大傷</button>
+          <button class="disaster-btn" data-mode="burn">🔥 八仙塵暴燒傷事故</button>
+          <button class="disaster-btn" data-mode="aircrash">✈️ 復興空難水域救援</button>
+        </div>
+      </div>
+
+      <button id="start-game-btn" class="primary-btn">🎮 登入並開始檢傷挑戰</button>
+
+      <!-- Live Leaderboard Preview on Welcome Screen -->
+      <div class="welcome-leaderboard">
+        <h3>🏆 課前即時排行榜 (Top 3 榮譽榜)</h3>
+        <div id="welcome-top3" class="top3-list">
+          <div class="top3-item gold">🥇 暫無紀錄</div>
+          <div class="top3-item silver">🥈 暫無紀錄</div>
+          <div class="top3-item bronze">🥉 暫無紀錄</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Stage Screen -->
+    <section id="quiz-screen" class="game-card quiz-card hidden">
+      <div class="card-top">
+        <div class="case-number">
+          <span>傷患個案 <strong id="case-current">1</strong> / <span id="case-total">10</span></span>
+        </div>
+        <div class="case-tags">
+          <span id="scenario-tag" class="scenario-tag">921強震事故現場</span>
+        </div>
+      </div>
+
+      <!-- Patient Vitals Card -->
+      <div class="patient-card">
+        <div class="patient-avatar">🩺</div>
+        <div class="patient-details">
+          <h3 id="patient-title" class="patient-title">傷患 A (男性，38歲)</h3>
+          <p id="patient-desc" class="patient-desc">載入個案資訊中...</p>
+          
+          <div class="vitals-grid">
+            <div class="vital-item">
+              <span class="vital-name">🚶 行走 (Walking)</span>
+              <span id="vital-walk" class="vital-val">無法自行行走</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-name">🫁 呼吸 (Respiration)</span>
+              <span id="vital-resp" class="vital-val">RR 34次/分</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-name">🩸 灌流 (Perfusion)</span>
+              <span id="vital-perf" class="vital-val">CRT 1.5秒，摸得到橈脈搏</span>
+            </div>
+            <div class="vital-item">
+              <span class="vital-name">🧠 意識 (Mental)</span>
+              <span id="vital-mental" class="vital-val">能聽從指令握手</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Triage Choice Action Buttons -->
+      <div class="action-prompt">
+        <h3>請依 START 原則進行檢傷掛卡：</h3>
+      </div>
+
+      <div class="triage-buttons">
+        <button class="triage-btn red-btn" data-color="red">
+          <span class="color-badge">🔴 紅色 (Immediate)</span>
+          <span class="color-sub">危急急需搶救</span>
+        </button>
+        <button class="triage-btn yellow-btn" data-color="yellow">
+          <span class="color-badge">🟡 黃色 (Delayed)</span>
+          <span class="color-sub">次危急可延後</span>
+        </button>
+        <button class="triage-btn green-btn" data-color="green">
+          <span class="color-badge">🟢 綠色 (Minor)</span>
+          <span class="color-sub">輕傷自行行走</span>
+        </button>
+        <button class="triage-btn black-btn" data-color="black">
+          <span class="color-badge">⬛ 黑色 (Expectant)</span>
+          <span class="color-sub">死亡/無存活希望</span>
+        </button>
+      </div>
+
+      <!-- Feedback Banner -->
+      <div id="feedback-box" class="feedback-box hidden">
+        <div id="feedback-title" class="feedback-title">✅ 檢傷正確！</div>
+        <div id="feedback-desc" class="feedback-desc">解析描述中...</div>
+        <button id="next-case-btn" class="next-btn">下一位傷患 ➔</button>
+      </div>
+    </section>
+
+    <!-- Result Screen with Top 3 & Reward Certificate -->
+    <section id="result-screen" class="game-card result-card hidden">
+      <div class="result-header">
+        <span class="trophy-icon">🏆</span>
+        <h2>檢傷挑戰完成成績單</h2>
+        <p class="player-congrat">恭喜學員 <strong id="res-player-name" class="highlight-name">張醫師</strong> 完成檢傷模擬！</p>
+      </div>
+
+      <div class="result-stats">
+        <div class="res-stat">
+          <span class="res-label">最終得分</span>
+          <span id="final-score" class="res-val">0</span>
+        </div>
+        <div class="res-stat">
+          <span class="res-label">檢傷正確率</span>
+          <span id="final-acc" class="res-val">0%</span>
+        </div>
+        <div class="res-stat">
+          <span class="res-label">最高連續正確</span>
+          <span id="final-streak" class="res-val">0</span>
+        </div>
+      </div>
+
+      <!-- Top 3 Leaderboard Section -->
+      <div class="leaderboard-section">
+        <h3>🏆 課堂即時榮譽排行榜 (Top 3 Leaderboard)</h3>
+        <div id="result-top3-list" class="leaderboard-grid">
+          <!-- Dynamically filled by JS -->
+        </div>
+      </div>
+
+      <!-- Reward Certificate Box (Shown if in Top 3) -->
+      <div id="reward-box" class="reward-box hidden">
+        <div class="reward-ribbon">🎁 課堂前三名榮譽獎勵憑證 🎁</div>
+        <h3 id="reward-title">🥇 恭喜獲得【第一名 / 冠軍獎勵】！</h3>
+        <p id="reward-desc">憑此獲獎畫面，可向講師領取精美獎品 / 研習咖啡卷一份！</p>
+      </div>
+
+      <div class="rank-box">
+        <span class="rank-title">獲得 PGY 災難應變稱號：</span>
+        <h3 id="pgy-rank" class="rank-name">🏆 災難醫療特級指揮官</h3>
+        <p id="rank-desc" class="rank-desc">您對 START RPM 檢傷法則與台灣災害應變流程精準無誤！</p>
+      </div>
+
+      <div class="result-actions">
+        <button id="restart-game-btn" class="primary-btn">🔄 換下一位學員挑戰</button>
+        <a href="index.html" class="secondary-btn">📖 回簡報複習知識點</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
