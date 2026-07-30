@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const studentName = document.getElementById('student-name').value.trim() || '匿名學員';
       const feedbackBest = document.getElementById('feedback-best').value.trim();
       const feedbackSuggest = document.getElementById('feedback-suggest').value.trim();
 
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const surveyEntry = {
         timestamp: new Date().toISOString(),
-        studentName,
         ratings,
         feedbackBest,
         feedbackSuggest
