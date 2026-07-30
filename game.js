@@ -3,8 +3,8 @@ const casesDatabase = {
   earthquake: [
     {
       id: 1,
-      title: "傷患 A (男性，38歲 - 921大樓倒塌救援)",
-      desc: "倒塌大樓救出，左腿受困3小時，雙肢有多處嚴重撕裂傷與開放性骨折。廣播後自行站立並緩慢行走至檢傷人員身旁。",
+      title: "傷患 A (男性，38歲 - 日本熊本地震木造房屋倒塌)",
+      desc: "熊本地震益城町倒塌木造住宅救出，左腿受困3小時，雙肢有多處嚴重撕裂傷與開放性骨折。廣播後自行站立並緩慢行走至檢傷人員身旁。",
       walk: "🟢 能自行行走",
       resp: "RR 22次/分 (正常)",
       perf: "CRT 1.5秒，橈脈搏強",
@@ -14,19 +14,19 @@ const casesDatabase = {
     },
     {
       id: 2,
-      title: "傷患 B (女性，45歲 - 擠壓症候群傷患)",
-      desc: "從倒塌磚牆下被救出，胸部壓傷。無法自行行走，表情極度痛苦。檢傷發現呼吸極度急促且淺。",
+      title: "傷患 B (女性，45歲 - 熊本地震擠壓症候群傷患)",
+      desc: "從倒塌磚牆下被日本 DMAT 救出，胸腹部壓傷受困數小時。無法自行行走，表情極度痛苦。檢傷發現呼吸極度急促且淺。",
       walk: "❌ 無法自行行走",
       resp: "RR 36次/分 (過快)",
       perf: "CRT 1.8秒，摸得到橈脈搏",
       mental: "意識清醒但焦慮",
       correctColor: "red",
-      explanation: "【檢傷結果：🔴 紅色】依 START 檢傷 Step 2：無法行走，且呼吸速率 RR > 30 次/分（RR 36），代表呼吸窘迫，必須立即掛【紅色】優先送入急診搶救區。"
+      explanation: "【檢傷結果：🔴 紅色】依 START 檢傷 Step 2：無法行走，且呼吸速率 RR > 30 次/分（RR 36），代表呼吸窘迫與潛在擠壓症候群 (Crush Syndrome)，必須立即掛【紅色】優先送入急診搶救區。"
     },
     {
       id: 3,
-      title: "傷患 C (男性，62歲 - 頭部重創倒地)",
-      desc: "受困瓦礫堆中，被重物擊中頭部。無自主呼吸，發紺，無意識。",
+      title: "傷患 C (男性，62歲 - 熊本地震頭部重創)",
+      desc: "受困震災瓦礫堆中，被重物擊中頭部。無自主呼吸，發紺，無意識。",
       walk: "❌ 無法自行行走",
       resp: "無自主呼吸 (打開放氣道後仍無呼吸)",
       perf: "橈脈搏消失",
@@ -36,8 +36,8 @@ const casesDatabase = {
     },
     {
       id: 4,
-      title: "傷患 D (女性，29歲 - 內出血休克)",
-      desc: "腹部受強烈撞擊，臉色蒼白、全身冷汗。無法自行行走。呼吸 24次/分，但手腳冰冷。",
+      title: "傷患 D (女性，29歲 - 震災內出血休克)",
+      desc: "阿蘇大橋周邊車輛受地震落石強烈撞擊，腹部受創，臉色蒼白、全身冷汗。無法自行行走。呼吸 24次/分，但手腳冰冷。",
       walk: "❌ 無法自行行走",
       resp: "RR 24次/分 (正常)",
       perf: "CRT 3.5秒 (過慢)，摸不到橈脈搏",
@@ -47,8 +47,8 @@ const casesDatabase = {
     },
     {
       id: 5,
-      title: "傷患 E (男性，50歲 - 閉鎖性骨折)",
-      desc: "右前臂閉鎖性骨折，變形腫脹。無法自行行走（因左膝擦傷疼痛），但生命徵象穩定。",
+      title: "傷患 E (男性，50歲 - 熊本地震肢體骨折)",
+      desc: "避難過度擠壓致右前臂閉鎖性骨折，變形腫脹。無法自行行走（因左膝擦傷疼痛），但生命徵象穩定。",
       walk: "❌ 無法自行行走",
       resp: "RR 20次/分 (正常)",
       perf: "CRT 1.5秒，橈脈搏強",
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (currentMode === 'earthquake') {
       currentCases = [...casesDatabase.earthquake, ...casesDatabase.aircrash.slice(0, 3)];
-      scenarioTagEl.textContent = '🏚️ 921/地震大傷現場';
+      scenarioTagEl.textContent = '🏚️ 日本熊本地震現場';
     } else if (currentMode === 'burn') {
       currentCases = [...casesDatabase.burn, ...casesDatabase.earthquake.slice(0, 4)];
       scenarioTagEl.textContent = '🔥 八仙塵暴大傷現場';
@@ -378,11 +378,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (playerRank > 0 && playerRank <= 3) {
       rewardBox.classList.remove('hidden');
       if (playerRank === 1) {
-        rewardTitle.textContent = '🥇 恭喜獲得【第一名 / 冠軍榮譽獎勵】！';
+        rewardTitle.textContent = '🥇 恭喜獲得【第一名 / 冠軍獎勵】！';
       } else if (playerRank === 2) {
-        rewardTitle.textContent = '🥈 恭喜獲得【第二名 / 亞軍榮譽獎勵】！';
+        rewardTitle.textContent = '🥈 恭喜獲得【第二名 / 亞軍獎勵】！';
       } else {
-        rewardTitle.textContent = '🥉 恭喜獲得【第三名 / 季軍榮譽獎勵】！';
+        rewardTitle.textContent = '🥉 恭喜獲得【第三名 / 季軍獎勵】！';
       }
       
       // Trigger Confetti Celebration!
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Evaluation Rank
     if (accuracy >= 90) {
       pgyRankEl.textContent = '🏆 災難醫療特級指揮官 (Disaster Master)';
-      rankDescEl.textContent = '太棒了！您對 START RPM 檢傷法則與台灣大傷應變流程運用如神！';
+      rankDescEl.textContent = '太棒了！您對 START RPM 檢傷法則與災害應變流程精準無誤！';
     } else if (accuracy >= 70) {
       pgyRankEl.textContent = '🥇 第一線檢傷神射手 (Expert Triager)';
       rankDescEl.textContent = '表現優秀！您已完全掌握 PGY 第一線檢傷與分流處置要領！';
