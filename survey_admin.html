@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 災難醫學講堂 — 課後問卷講師統計後台</title>
+  <link rel="stylesheet" href="survey_styles.css?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="survey-header">
+    <div class="header-left">
+      <span class="survey-badge">Instructor Dashboard</span>
+      <h1 class="survey-title">📊 課後問卷講師統計看板</h1>
+    </div>
+    <div class="header-right">
+      <a href="survey.html" class="game-link">📋 回問卷頁面</a>
+      <a href="index.html" class="game-link" style="margin-left: 1rem;">🎮 小遊戲</a>
+    </div>
+  </header>
+
+  <main class="survey-container">
+    
+    <!-- Dashboard Summary Card -->
+    <div class="survey-intro-card">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>📊 課後回饋數據與滿意度分析</h2>
+        <div>
+          <button id="export-csv-btn" class="admin-action-btn export-btn">📥 匯出 Excel (CSV)</button>
+          <button id="clear-survey-btn" class="admin-action-btn danger-btn">🗑️ 清空問卷資料</button>
+        </div>
+      </div>
+      <div class="stats-overview">
+        <div class="stat-card">
+          <span class="stat-title">總填答人數</span>
+          <span id="stat-count" class="stat-num">0 人</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-title">整體平均滿意度</span>
+          <span id="stat-avg" class="stat-num">0.0 / 5.0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Likert Scores Breakdown -->
+    <section class="survey-group">
+      <h3 class="group-title">📈 各維度 1~13 題平均得分統計</h3>
+      <div id="scores-breakdown-list" class="scores-list">
+        <p class="empty-hint">目前尚無填答紀錄。請學員填寫問卷後重新整理此頁面。</p>
+      </div>
+    </section>
+
+    <!-- Qualitative Feedback (Q14 & Q15) -->
+    <section class="survey-group">
+      <h3 class="group-title">💬 學員開放式建議與回饋清單 (Q14 & Q15)</h3>
+      <div id="feedback-comments-list" class="comments-list">
+        <p class="empty-hint">目前尚無文字回饋。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const countEl = document.getElementById('stat-count');
+      const avgEl = document.getElementById('stat-avg');
+      const scoresListEl = document.getElementById('scores-breakdown-list');
+      const commentsListEl = document.getElementById('feedback-comments-list');
+      const exportBtn = document.getElementById('export-csv-btn');
+      const clearBtn = document.getElementById('clear-survey-btn');
+
+      const qTitles = {
+        q1: "1. 課程時間安排（60分鐘）緊湊得當",
+        q2: "2. 投影片版面簡潔、字體清晰且內容條理分明",
+        q3: "3. 講師說明生動清楚，能有效解答學員提問",
+        q4: "4. 清楚理解災難醫學與全災害 (All-Hazard) 管理哲學",
+        q5: "5. 明白醫院緊急應變指揮體系 (HICS / EOC) 架構",
+        q6: "6. 熟練掌握 START 檢傷四大評估原則 (RPM)",
+        q7: "7. 結合日本熊本地震、八仙塵暴與復興空難真實案例",
+        q8: "8. 第一線執行 60 秒 START 檢傷決策充滿信心",
+        q9: "9. 大傷全院動員下清楚 PGY 醫師應變配合職責",
+        q10: "10. 所學內容對未來臨床與急診輪調具備實用價值",
+        q11: "11. 檢傷 60 秒英雄小遊戲激發學習動機",
+        q12: "12. 小遊戲即時答案解析與 RPM 口訣提示有幫助",
+        q13: "13. 課堂 Top 3 排行榜與獲獎憑證增加競賽成就感"
+      };
+
+      function loadData() {
+        let responses = [];
+        try {
+          responses = JSON.parse(localStorage.getItem('disaster_survey_responses') || '[]');
+        } catch(e) { responses = []; }
+
+        countEl.textContent = `${responses.length} 人`;
+
+        if (responses.length === 0) {
+          avgEl.textContent = '0.0 / 5.0';
+          scoresListEl.innerHTML = '<p class="empty-hint">目前尚無填答紀錄。</p>';
+          commentsListEl.innerHTML = '<p class="empty-hint">目前尚無文字回饋。</p>';
+          return;
+        }
+
+        // Calculate averages
+        let grandTotal = 0;
+        let grandCount = 0;
+
+        let qSums = {};
+        for (let i = 1; i <= 13; i++) qSums[`q${i}`] = { sum: 0, count: 0 };
+
+        responses.forEach(r => {
+          if (r.ratings) {
+            Object.keys(r.ratings).forEach(qKey => {
+              const val = parseFloat(r.ratings[qKey]);
+              if (!isNaN(val)) {
+                qSums[qKey].sum += val;
+                qSums[qKey].count++;
+                grandTotal += val;
+                grandCount++;
+              }
+            });
+          }
+        });
+
+        const overallAvg = grandCount > 0 ? (grandTotal / grandCount).toFixed(2) : '0.0';
+        avgEl.textContent = `${overallAvg} / 5.0`;
+
+        // Render scores breakdown
+        let scoresHtml = '';
+        for (let i = 1; i <= 13; i++) {
+          const key = `q${i}`;
+          const count = qSums[key].count;
+          const avg = count > 0 ? (qSums[key].sum / count).toFixed(2) : '0.0';
+          const percent = count > 0 ? Math.round((avg / 5) * 100) : 0;
+
+          scoresHtml += `
+            <div class="score-item">
+              <div class="score-header">
+                <span class="score-title">${qTitles[key]}</span>
+                <span class="score-val">${avg} 分</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: ${percent}%;"></div>
+              </div>
+            </div>
+          `;
+        }
+        scoresListEl.innerHTML = scoresHtml;
+
+        // Render comments
+        let commentsHtml = '';
+        responses.forEach((r, idx) => {
+          if (r.feedbackBest || r.feedbackSuggest) {
+            commentsHtml += `
+              <div class="comment-card">
+                <div class="comment-user">👤 學員回饋 #${idx + 1} (${new Date(r.timestamp).toLocaleTimeString()})</div>
+                ${r.feedbackBest ? `<p><strong>收穫最深：</strong> ${escapeHtml(r.feedbackBest)}</p>` : ''}
+                ${r.feedbackSuggest ? `<p><strong>具體建議：</strong> ${escapeHtml(r.feedbackSuggest)}</p>` : ''}
+              </div>
+            `;
+          }
+        });
+
+        commentsListEl.innerHTML = commentsHtml || '<p class="empty-hint">尚無文字回饋。</p>';
+      }
+
+      function escapeHtml(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      }
+
+      // Export CSV
+      exportBtn.addEventListener('click', () => {
+        let responses = JSON.parse(localStorage.getItem('disaster_survey_responses') || '[]');
+        if (responses.length === 0) {
+          alert('目前沒有問卷資料可供匯出！');
+          return;
+        }
+
+        let csv = '時間,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14最具收穫,Q15具體建議\n';
+        responses.forEach(r => {
+          let row = [
+            `"${r.timestamp}"`,
+            r.ratings?.q1 || '', r.ratings?.q2 || '', r.ratings?.q3 || '', r.ratings?.q4 || '',
+            r.ratings?.q5 || '', r.ratings?.q6 || '', r.ratings?.q7 || '', r.ratings?.q8 || '',
+            r.ratings?.q9 || '', r.ratings?.q10 || '', r.ratings?.q11 || '', r.ratings?.q12 || '', r.ratings?.q13 || '',
+            `"${(r.feedbackBest || '').replace(/"/g, '""')}"`,
+            `"${(r.feedbackSuggest || '').replace(/"/g, '""')}"`
+          ];
+          csv += row.join(',') + '\n';
+        });
+
+        const blob = new Blob(["\ufeff" + csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `災難醫學問卷結果_${new Date().toISOString().slice(0,10)}.csv`;
+        a.click();
+      });
+
+      // Clear Survey Responses
+      clearBtn.addEventListener('click', () => {
+        if (confirm('⚠️ 確定要清空所有的課後問卷填答紀錄嗎？')) {
+          localStorage.removeItem('disaster_survey_responses');
+          loadData();
+          alert('✅ 問卷資料已成功清空！');
+        }
+      });
+
+      loadData();
+    });
+  </script>
+</body>
+</html>

@@ -89,6 +89,128 @@ body {
   color: #cbd5e1;
 }
 
+/* Stats Overview */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  padding: 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-title {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary-accent);
+}
+
+.admin-action-btn {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.export-btn {
+  background: #0284c7;
+  color: white;
+}
+
+.danger-btn {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.danger-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.scores-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.score-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.score-title { color: #e2e8f0; }
+.score-val { color: var(--primary-accent); font-weight: 900; }
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8 0%, #10b981 100%);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.comment-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  padding: 1.25rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.comment-user {
+  font-size: 0.85rem;
+  color: var(--primary-accent);
+  font-weight: 700;
+}
+
+.empty-hint {
+  color: var(--text-sub);
+  font-style: italic;
+}
+
 .survey-group {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -108,26 +230,6 @@ body {
   font-size: 0.9rem;
   color: var(--text-sub);
   margin-bottom: 1rem;
-}
-
-.field-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.survey-input {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: none;
-}
-
-.survey-input:focus {
-  border-color: var(--primary-accent);
 }
 
 .q-item {
