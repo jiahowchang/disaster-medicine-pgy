@@ -71,6 +71,23 @@ body {
   gap: 1.25rem;
 }
 
+.survey-header-link {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.survey-header-link:hover {
+  background: #10b981;
+  color: #0f172a;
+}
+
 .stat-box {
   display: flex;
   flex-direction: column;
@@ -594,6 +611,24 @@ body {
 .rank-desc { font-size: 1.05rem; color: var(--text-main); }
 
 .result-actions { display: flex; gap: 1rem; }
+
+.survey-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+}
+
+.survey-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+}
 
 .secondary-btn {
   background: rgba(255, 255, 255, 0.1);

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📋 PGY 災難醫學與緊急應變課程 — 課後滿意度與學習成效評估問卷</title>
+  <link rel="stylesheet" href="survey_styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <header class="survey-header">
+    <div class="header-left">
+      <span class="survey-badge">Kirkpatrick Evaluation Model</span>
+      <h1 class="survey-title">📋 災難醫學講堂 課後評估問卷</h1>
+    </div>
+    <div class="header-right">
+      <a href="index.html" class="game-link">🎮 返回檢傷小遊戲</a>
+    </div>
+  </header>
+
+  <!-- Main Survey Container -->
+  <main class="survey-container">
+    
+    <div class="survey-intro-card">
+      <h2>🏥 PGY 災難醫學與應變指揮體系課程 課後回饋問卷</h2>
+      <p class="intro-desc">
+        各位 PGY 醫師您好！本問卷依據 <strong>Kirkpatrick 柯氏醫學教育評估理論 (反應、學習、行為遷移與教學科技評估)</strong> 嚴謹設計。請撥冗 2 分鐘填寫，您的寶貴意見將作為教學品質持續改善 (CBE/CBME) 之重要依據。
+      </p>
+    </div>
+
+    <!-- Survey Form -->
+    <form id="pgy-survey-form" class="survey-form">
+      
+      <!-- Basic Info -->
+      <fieldset class="survey-group">
+        <legend class="group-title">👤 基本資料 (選填)</legend>
+        <div class="field-row">
+          <label for="student-name">學員姓名 / 暱稱：</label>
+          <input type="text" id="student-name" class="survey-input" placeholder="例如：張醫師 (可匿名填寫)">
+        </div>
+      </fieldset>
+
+      <!-- Dimension 1: Level 1 Reaction (反應層面) -->
+      <fieldset class="survey-group">
+        <legend class="group-title">一、 課程體驗與滿意度 (Level 1: Reaction)</legend>
+        <p class="likert-hint">評分標準：1分 (非常不同意) ➔ 5分 (非常同意)</p>
+        
+        <div class="q-item">
+          <label class="q-text">1. 課程時間安排（60分鐘）緊湊得當，教學節奏符合 PGY 學習需求。</label>
+          <div class="likert-options" data-name="q1">
+            <label><input type="radio" name="q1" value="1" required> 1</label>
+            <label><input type="radio" name="q1" value="2"> 2</label>
+            <label><input type="radio" name="q1" value="3"> 3</label>
+            <label><input type="radio" name="q1" value="4"> 4</label>
+            <label><input type="radio" name="q1" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">2. 投影片版面簡潔、字體清晰且內容條理分明，利於專注吸收。</label>
+          <div class="likert-options" data-name="q2">
+            <label><input type="radio" name="q2" value="1" required> 1</label>
+            <label><input type="radio" name="q2" value="2"> 2</label>
+            <label><input type="radio" name="q2" value="3"> 3</label>
+            <label><input type="radio" name="q2" value="4"> 4</label>
+            <label><input type="radio" name="q2" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">3. 講師說明生動清楚，能有效解答學員提問並帶動課堂互動。</label>
+          <div class="likert-options" data-name="q3">
+            <label><input type="radio" name="q3" value="1" required> 1</label>
+            <label><input type="radio" name="q3" value="2"> 2</label>
+            <label><input type="radio" name="q3" value="3"> 3</label>
+            <label><input type="radio" name="q3" value="4"> 4</label>
+            <label><input type="radio" name="q3" value="5"> 5</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Dimension 2: Level 2 Learning (學習層面 - 核心知識) -->
+      <fieldset class="survey-group">
+        <legend class="group-title">二、 核心知識與概念吸收 (Level 2: Learning)</legend>
+        
+        <div class="q-item">
+          <label class="q-text">4. 本課程讓我清楚理解「災難醫學與一般急診醫療」的核心差異與全災害 (All-Hazard) 管理哲學。</label>
+          <div class="likert-options" data-name="q4">
+            <label><input type="radio" name="q4" value="1" required> 1</label>
+            <label><input type="radio" name="q4" value="2"> 2</label>
+            <label><input type="radio" name="q4" value="3"> 3</label>
+            <label><input type="radio" name="q4" value="4"> 4</label>
+            <label><input type="radio" name="q4" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">5. 我能明白醫院緊急應變指揮體系 (HICS / EOC) 的架構與動員分工。</label>
+          <div class="likert-options" data-name="q5">
+            <label><input type="radio" name="q5" value="1" required> 1</label>
+            <label><input type="radio" name="q5" value="2"> 2</label>
+            <label><input type="radio" name="q5" value="3"> 3</label>
+            <label><input type="radio" name="q5" value="4"> 4</label>
+            <label><input type="radio" name="q5" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">6. 我能熟練掌握 START 檢傷四大評估原則（Walking 🚶、Respiration 🫁、Perfusion 🩸、Mental 🧠）。</label>
+          <div class="likert-options" data-name="q6">
+            <label><input type="radio" name="q6" value="1" required> 1</label>
+            <label><input type="radio" name="q6" value="2"> 2</label>
+            <label><input type="radio" name="q6" value="3"> 3</label>
+            <label><input type="radio" name="q6" value="4"> 4</label>
+            <label><input type="radio" name="q6" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">7. 課程結合日本熊本地震、八仙塵暴與復興空難等真實案例，大幅提升了學習臨場感與記憶理解。</label>
+          <div class="likert-options" data-name="q7">
+            <label><input type="radio" name="q7" value="1" required> 1</label>
+            <label><input type="radio" name="q7" value="2"> 2</label>
+            <label><input type="radio" name="q7" value="3"> 3</label>
+            <label><input type="radio" name="q7" value="4"> 4</label>
+            <label><input type="radio" name="q7" value="5"> 5</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Dimension 3: Level 3 Behavior Transfer & Confidence (臨床行為遷移與自信心) -->
+      <fieldset class="survey-group">
+        <legend class="group-title">三、 臨床實用性與自我效能 (Level 3: Behavior Transfer)</legend>
+        
+        <div class="q-item">
+          <label class="q-text">8. 課後我對於在第一線急診或大傷現場執行 60 秒 START 檢傷決策充滿信心。</label>
+          <div class="likert-options" data-name="q8">
+            <label><input type="radio" name="q8" value="1" required> 1</label>
+            <label><input type="radio" name="q8" value="2"> 2</label>
+            <label><input type="radio" name="q8" value="3"> 3</label>
+            <label><input type="radio" name="q8" value="4"> 4</label>
+            <label><input type="radio" name="q8" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">9. 若醫院啟動大傷全院動員，我清楚知道身為 PGY 醫師的站位與應變配合職責。</label>
+          <div class="likert-options" data-name="q9">
+            <label><input type="radio" name="q9" value="1" required> 1</label>
+            <label><input type="radio" name="q9" value="2"> 2</label>
+            <label><input type="radio" name="q9" value="3"> 3</label>
+            <label><input type="radio" name="q9" value="4"> 4</label>
+            <label><input type="radio" name="q9" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">10. 本課程所學內容對未來的臨床工作與急診輪調具備高度實用價值。</label>
+          <div class="likert-options" data-name="q10">
+            <label><input type="radio" name="q10" value="1" required> 1</label>
+            <label><input type="radio" name="q10" value="2"> 2</label>
+            <label><input type="radio" name="q10" value="3"> 3</label>
+            <label><input type="radio" name="q10" value="4"> 4</label>
+            <label><input type="radio" name="q10" value="5"> 5</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Dimension 4: Gamification & Tech Feedback (遊戲化與教學科技反饋) -->
+      <fieldset class="survey-group">
+        <legend class="group-title">四、 遊戲化體驗與互動反饋 (Gamified Learning)</legend>
+        
+        <div class="q-item">
+          <label class="q-text">11. 「🚨 災難檢傷 60 秒英雄小遊戲」設計能激發學習動機，讓檢傷練習變得更有趣。</label>
+          <div class="likert-options" data-name="q11">
+            <label><input type="radio" name="q11" value="1" required> 1</label>
+            <label><input type="radio" name="q11" value="2"> 2</label>
+            <label><input type="radio" name="q11" value="3"> 3</label>
+            <label><input type="radio" name="q11" value="4"> 4</label>
+            <label><input type="radio" name="q11" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">12. 小遊戲中的「即時答案臨床解析與 RPM 口訣提示」對強化認知極有幫助。</label>
+          <div class="likert-options" data-name="q12">
+            <label><input type="radio" name="q12" value="1" required> 1</label>
+            <label><input type="radio" name="q12" value="2"> 2</label>
+            <label><input type="radio" name="q12" value="3"> 3</label>
+            <label><input type="radio" name="q12" value="4"> 4</label>
+            <label><input type="radio" name="q12" value="5"> 5</label>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <label class="q-text">13. 「課堂 Top 3 榮譽排行榜與獲獎憑證」機制增加了課堂互動與競賽成就感。</label>
+          <div class="likert-options" data-name="q13">
+            <label><input type="radio" name="q13" value="1" required> 1</label>
+            <label><input type="radio" name="q13" value="2"> 2</label>
+            <label><input type="radio" name="q13" value="3"> 3</label>
+            <label><input type="radio" name="q13" value="4"> 4</label>
+            <label><input type="radio" name="q13" value="5"> 5</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Qualitative Feedback (開放式建議 - 2 題) -->
+      <fieldset class="survey-group">
+        <legend class="group-title">五、 開放式建議與意見反饋 (Qualitative Feedback)</legend>
+        
+        <div class="q-item">
+          <label for="feedback-best" class="q-text">14. 您認為本堂課最具收穫或印象最深刻的部分是什麼？</label>
+          <textarea id="feedback-best" class="survey-textarea" placeholder="歡迎分享您的心得或最具收穫的觀念..."></textarea>
+        </div>
+
+        <div class="q-item">
+          <label for="feedback-suggest" class="q-text">15. 對於未來本課程之教學內容、案例或小遊戲設計，您有何具體建議？</label>
+          <textarea id="feedback-suggest" class="survey-textarea" placeholder="歡迎給予講師任何具體改進建議..."></textarea>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="submit-btn">🚀 送出課後評估問卷</button>
+    </form>
+
+    <!-- Submission Success Message Card -->
+    <div id="success-card" class="survey-card success-card hidden">
+      <div class="success-icon">🎉</div>
+      <h2>問卷已成功送出！</h2>
+      <p>非常感謝您的寶貴反饋，您的建議是我們持續提升醫學教育品質最大的動力！</p>
+      <div class="success-actions">
+        <a href="index.html" class="primary-btn">🎮 回到檢傷小遊戲挑戰</a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="survey.js"></script>
+</body>
+</html>
