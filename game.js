@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const startGameBtn = document.getElementById('start-game-btn');
   const restartGameBtn = document.getElementById('restart-game-btn');
+  const clearLeaderboardBtn = document.getElementById('clear-leaderboard-btn');
   const disasterBtns = document.querySelectorAll('.disaster-btn');
 
   const scoreEl = document.getElementById('score');
@@ -192,6 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Initial Welcome Leaderboard
   renderLeaderboard();
+
+  // Clear Leaderboard Admin Action
+  if (clearLeaderboardBtn) {
+    clearLeaderboardBtn.addEventListener('click', () => {
+      const confirmClear = confirm('⚠️ 【講師管理功能】確定要清空目前的課堂即時排行榜嗎？\n（建議在切換新班級或新課堂前點擊重置）');
+      if (confirmClear) {
+        localStorage.removeItem('disaster_triage_leaderboard');
+        renderLeaderboard();
+        alert('✅ 排行榜已成功清空重置！');
+      }
+    });
+  }
 
   // Rules modal listeners
   if (showRulesBtn && rulesModal && closeRulesBtn) {

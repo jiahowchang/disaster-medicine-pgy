@@ -20,6 +20,7 @@
       <h1 class="game-title">🚨 災難檢傷 60 秒英雄</h1>
     </div>
     <div class="header-stats">
+      <button id="clear-leaderboard-btn" class="admin-btn" title="講師專用：清空排行榜">⚙️ 清空榜單</button>
       <div class="stat-box">
         <span class="stat-label">目前玩家</span>
         <span id="header-player-name" class="stat-value">未登入</span>
@@ -77,7 +78,9 @@
 
       <!-- Live Leaderboard Preview on Welcome Screen -->
       <div class="welcome-leaderboard">
-        <h3>🏆 課前即時排行榜 (Top 3 榮譽榜)</h3>
+        <div class="lb-header-row">
+          <h3>🏆 課前即時排行榜 (Top 3 榮譽榜)</h3>
+        </div>
         <div id="welcome-top3" class="top3-list">
           <div class="top3-item gold">🥇 暫無紀錄</div>
           <div class="top3-item silver">🥈 暫無紀錄</div>
@@ -123,7 +126,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- Triage Choice Action Buttons -->
       <div class="action-prompt">

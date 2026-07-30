@@ -68,7 +68,25 @@ body {
 .header-stats {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
+}
+
+.admin-btn {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-btn:hover {
+  background: #dc2626;
+  color: white;
+  border-color: #ef4444;
 }
 
 .stat-box {
