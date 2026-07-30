@@ -177,6 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const rewardBox = document.getElementById('reward-box');
   const rewardTitle = document.getElementById('reward-title');
 
+  const showRulesBtn = document.getElementById('show-rules-btn');
+  const rulesModal = document.getElementById('rules-modal');
+  const closeRulesBtn = document.getElementById('close-rules-btn');
+
   // Disaster Mode Selection
   disasterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -189,12 +193,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Initial Welcome Leaderboard
   renderLeaderboard();
 
+  // Rules modal listeners
+  if (showRulesBtn && rulesModal && closeRulesBtn) {
+    showRulesBtn.addEventListener('click', () => rulesModal.classList.remove('hidden'));
+    closeRulesBtn.addEventListener('click', () => rulesModal.classList.add('hidden'));
+  }
+
   // Enter Key to Start
-  playerNameInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      startGame();
-    }
-  });
+  if (playerNameInput) {
+    playerNameInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        startGame();
+      }
+    });
+  }
 
   // Start Game
   startGameBtn.addEventListener('click', startGame);
@@ -377,10 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
       rankDescEl.textContent = '表現優秀！您已完全掌握 PGY 第一線檢傷與分流處置要領！';
     } else if (accuracy >= 50) {
       pgyRankEl.textContent = '🥈 合格 PGY 臨床醫師 (Qualified Resident)';
-      rankDescEl.textContent = '表現尚可，建議複習 START RPM 60秒決策樹以提升檢傷速度與正確率！';
+      rankDescEl.textContent = '表現尚可，建議點擊「查閱 START 檢傷口訣」以提升檢傷速度與正確率！';
     } else {
       pgyRankEl.textContent = '🚑 需重新複習 START 檢傷法則 (Needs Review)';
-      rankDescEl.textContent = '加油！請點擊下方按鈕回到講堂簡報複習檢傷四大原則與 RPM 流程。';
+      rankDescEl.textContent = '加油！請點擊「查閱 START 檢傷口訣」複習檢傷四大原則與 RPM 流程。';
     }
   }
 

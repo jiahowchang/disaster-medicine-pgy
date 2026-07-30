@@ -16,7 +16,6 @@
   <!-- Top Header Bar -->
   <header class="game-header">
     <div class="header-left">
-      <a href="index.html" class="back-link">⬅️ 返回講堂簡報</a>
       <span class="game-badge">START Triage Simulator</span>
       <h1 class="game-title">🚨 災難檢傷 60 秒英雄</h1>
     </div>
@@ -204,7 +203,21 @@
 
       <div class="result-actions">
         <button id="restart-game-btn" class="primary-btn">🔄 換下一位學員挑戰</button>
-        <a href="index.html" class="secondary-btn">📖 回簡報複習知識點</a>
+        <button id="show-rules-btn" class="secondary-btn">📖 查閱 START 檢傷口訣</button>
+      </div>
+
+      <!-- Modal for START Rules -->
+      <div id="rules-modal" class="rules-modal hidden">
+        <div class="modal-content">
+          <h3>📖 START 檢傷 RPM 60 秒口訣</h3>
+          <ul>
+            <li><strong>Step 1 Walking</strong>：能自行行走者 ➔ 🟢 綠色（輕傷）</li>
+            <li><strong>Step 2 Respiration</strong>：無呼吸打開放氣道無 ➔ ⬛ 黑色；RR > 30 ➔ 🔴 紅色</li>
+            <li><strong>Step 3 Perfusion</strong>：CRT > 2 秒或摸不到橈脈搏 ➔ 🔴 紅色</li>
+            <li><strong>Step 4 Mental</strong>：無法遵從簡單指令 ➔ 🔴 紅色；其餘 ➔ 🟡 黃色</li>
+          </ul>
+          <button id="close-rules-btn" class="next-btn">關閉視窗</button>
+        </div>
       </div>
     </section>
 

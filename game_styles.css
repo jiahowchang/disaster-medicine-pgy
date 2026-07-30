@@ -51,18 +51,6 @@ body {
   gap: 1rem;
 }
 
-.back-link {
-  color: var(--primary-accent);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 700;
-  transition: opacity 0.2s ease;
-}
-
-.back-link:hover {
-  opacity: 0.8;
-}
-
 .game-badge {
   background: #0284c7;
   color: white;
@@ -585,13 +573,44 @@ body {
 .secondary-btn {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-main);
-  text-decoration: none;
+  border: 1px solid var(--border-color);
   padding: 1rem 2rem;
   border-radius: 12px;
   font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
 }
+
+/* Modal Window */
+.rules-modal {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #1e293b;
+  border: 2px solid var(--primary-accent);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 550px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.modal-content h3 { color: var(--primary-accent); font-size: 1.3rem; }
+.modal-content ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 1.05rem; }
+.modal-content li { background: rgba(15, 23, 42, 0.6); padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border-color); }
 
 @media (max-width: 768px) {
   .vitals-grid, .triage-buttons, .top3-list {
