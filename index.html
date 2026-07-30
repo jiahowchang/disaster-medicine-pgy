@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🚨 災難檢傷 60 秒英雄 | PGY 臨床檢傷實戰小遊戲</title>
-  <link rel="stylesheet" href="game_styles.css">
+  <link rel="stylesheet" href="game_styles.css?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@
       <h1 class="game-title">🚨 災難檢傷 60 秒英雄</h1>
     </div>
     <div class="header-stats">
-      <button id="clear-leaderboard-btn" class="admin-btn" title="講師專用：清空排行榜">⚙️ 清空榜單</button>
       <div class="stat-box">
         <span class="stat-label">目前玩家</span>
         <span id="header-player-name" class="stat-value">未登入</span>
@@ -78,8 +77,9 @@
 
       <!-- Live Leaderboard Preview on Welcome Screen -->
       <div class="welcome-leaderboard">
-        <div class="lb-header-row">
+        <div class="lb-title-bar">
           <h3>🏆 課前即時排行榜 (Top 3 榮譽榜)</h3>
+          <button id="clear-leaderboard-btn" class="clear-lb-btn">🗑️ 講師清空排行榜</button>
         </div>
         <div id="welcome-top3" class="top3-list">
           <div class="top3-item gold">🥇 暫無紀錄</div>
@@ -126,7 +126,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <!-- Triage Choice Action Buttons -->
       <div class="action-prompt">
@@ -226,6 +226,6 @@
 
   </main>
 
-  <script src="game.js"></script>
+  <script src="game.js?v=2"></script>
 </body>
 </html>

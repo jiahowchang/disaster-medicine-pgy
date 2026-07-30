@@ -71,24 +71,6 @@ body {
   gap: 1.25rem;
 }
 
-.admin-btn {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  color: #fca5a5;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.admin-btn:hover {
-  background: #dc2626;
-  color: white;
-  border-color: #ef4444;
-}
-
 .stat-box {
   display: flex;
   flex-direction: column;
@@ -275,10 +257,35 @@ body {
   margin-top: 0.5rem;
 }
 
+.lb-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
 .welcome-leaderboard h3 {
   font-size: 1.1rem;
-  margin-bottom: 0.75rem;
   color: #f59e0b;
+  margin: 0;
+}
+
+.clear-lb-btn {
+  background: #dc2626;
+  color: white;
+  border: 1px solid #ef4444;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+  transition: all 0.2s ease;
+}
+
+.clear-lb-btn:hover {
+  background: #ef4444;
+  transform: scale(1.05);
 }
 
 .top3-list {
