@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📊 災難醫學講堂 — 課後問卷講師統計後台</title>
-  <link rel="stylesheet" href="survey_styles.css?v=3">
+  <link rel="stylesheet" href="survey_styles.css?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -23,7 +23,19 @@
     </div>
   </header>
 
-  <main class="survey-container">
+  <!-- Password Authentication Lock Screen -->
+  <div id="lock-screen" class="survey-container">
+    <div class="survey-intro-card text-center" style="max-width:450px; margin: 3rem auto;">
+      <h2>🔐 講師身份安全驗證</h2>
+      <p class="intro-desc" style="margin: 1rem 0;">請輸入講師管理密碼以存取問卷統計與匯出功能：</p>
+      <input type="password" id="admin-pass-input" class="survey-input" placeholder="請輸入密碼 (預設: pgy2026)..." style="width:100%; text-align:center; font-size:1.2rem;">
+      <button id="unlock-btn" class="submit-btn" style="margin-top:1rem; width:100%;">🔓 解鎖後台</button>
+      <p id="pass-error" class="hidden" style="color:#ef4444; margin-top:0.5rem; font-weight:700;">❌ 密碼錯誤，請重新輸入！</p>
+    </div>
+  </div>
+
+  <!-- Protected Admin Container -->
+  <main id="admin-content" class="survey-container hidden">
     
     <!-- Dashboard Summary Card -->
     <div class="survey-intro-card">
@@ -50,7 +62,7 @@
     <section class="survey-group">
       <h3 class="group-title">📈 各維度 1~13 題平均得分統計</h3>
       <div id="scores-breakdown-list" class="scores-list">
-        <p class="empty-hint">目前尚無填答紀錄。請學員填寫問卷後重新整理此頁面。</p>
+        <p class="empty-hint">目前尚無填答紀錄。</p>
       </div>
     </section>
 
@@ -66,12 +78,35 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const lockScreen = document.getElementById('lock-screen');
+      const adminContent = document.getElementById('admin-content');
+      const passInput = document.getElementById('admin-pass-input');
+      const unlockBtn = document.getElementById('unlock-btn');
+      const passError = document.getElementById('pass-error');
+
       const countEl = document.getElementById('stat-count');
       const avgEl = document.getElementById('stat-avg');
       const scoresListEl = document.getElementById('scores-breakdown-list');
       const commentsListEl = document.getElementById('feedback-comments-list');
       const exportBtn = document.getElementById('export-csv-btn');
       const clearBtn = document.getElementById('clear-survey-btn');
+
+      const ADMIN_PASSWORD = "pgy2026"; // 講師預設管理密碼
+
+      unlockBtn.addEventListener('click', checkPass);
+      passInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkPass();
+      });
+
+      function checkPass() {
+        if (passInput.value === ADMIN_PASSWORD) {
+          lockScreen.classList.add('hidden');
+          adminContent.classList.remove('hidden');
+          loadData();
+        } else {
+          passError.classList.remove('hidden');
+        }
+      }
 
       const qTitles = {
         q1: "1. 課程時間安排（60分鐘）緊湊得當",
@@ -202,14 +237,15 @@
 
       // Clear Survey Responses
       clearBtn.addEventListener('click', () => {
-        if (confirm('⚠️ 確定要清空所有的課後問卷填答紀錄嗎？')) {
+        const inputPass = prompt('🔐 請輸入講師解鎖密碼以清空資料：');
+        if (inputPass === ADMIN_PASSWORD) {
           localStorage.removeItem('disaster_survey_responses');
           loadData();
           alert('✅ 問卷資料已成功清空！');
+        } else {
+          alert('❌ 密碼錯誤，操作已取消！');
         }
       });
-
-      loadData();
     });
   </script>
 </body>

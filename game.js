@@ -132,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let timeLeft = 60;
   let timerInterval = null;
 
+  const ADMIN_PASSWORD = "pgy2026"; // 講師管理密碼
+
   // DOM elements
   const welcomeScreen = document.getElementById('welcome-screen');
   const quizScreen = document.getElementById('quiz-screen');
@@ -194,14 +196,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Initial Welcome Leaderboard
   renderLeaderboard();
 
-  // Clear Leaderboard Admin Action
+  // Clear Leaderboard Admin Password Check
   if (clearLeaderboardBtn) {
     clearLeaderboardBtn.addEventListener('click', () => {
-      const confirmClear = confirm('⚠️ 【講師管理功能】確定要清空目前的課堂即時排行榜嗎？\n（建議在切換新班級或新課堂前點擊重置）');
-      if (confirmClear) {
+      const inputPass = prompt('🔐 【講師安全驗證】請輸入講師管理密碼以清空排行榜：');
+      if (inputPass === ADMIN_PASSWORD) {
         localStorage.removeItem('disaster_triage_leaderboard');
         renderLeaderboard();
         alert('✅ 排行榜已成功清空重置！');
+      } else if (inputPass !== null) {
+        alert('❌ 密碼錯誤！只有講師可以清空排行榜。');
       }
     });
   }
